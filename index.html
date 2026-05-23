@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DreamLance | Campus Jobs, Internships, Student Projects & Startup Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home"><span class="retro-icon">🚀</span> DreamLance</a>
+      <nav class="nav-links">
+        <a href="#jobs">Jobs</a>
+        <a href="#internships">Internships</a>
+        <a href="/projects" target="_blank">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <a class="btn btn-secondary" href="/admin" style="padding:8px 14px;">Admin Login</a>
+        <a class="btn btn-primary" href="#contact" style="padding:8px 14px;">Start Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">DreamLance — Real-Time Campus to Career Platform</p>
+          <h1>Real-time jobs, internships, student-built projects, and custom builds.</h1>
+          <p>Discover roles at top tech companies, apply to real-time internships, build portfolio projects, or let our expert team design and implement your software custom-builds. Pay only when complete.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/projects" target="_blank">Explore Projects</a>
+            <a class="btn btn-secondary" href="#jobs">See Jobs</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="panel-card">
+            <h2>Live Now</h2>
+            <ul class="job-list">
+              <li><strong>UI/UX Intern</strong> — Startup growth hub</li>
+              <li><strong>Web Developer</strong> — Remote tech studio</li>
+              <li><strong>Data Analyst</strong> — Campus innovation lab</li>
+            </ul>
+          </div>
+          <div class="panel-card panel-highlight">
+            <h3>Need a project? Get an estimate.</h3>
+            <p>Share your idea and our team will propose a plan, timeline, and implementation path.</p>
+            <a class="btn btn-white" href="#contact">Request Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">What we offer</p>
+          <h2>Services for students, startups, and companies.</h2>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <h3>Student Projects</h3>
+            <p>Apply to curated projects, gain real experience, and build a professional portfolio that impresses recruiters.</p>
+          </article>
+          <article class="service-card">
+            <h3>Real-time Job Board</h3>
+            <p>From internships to freelance gigs, we aggregate verified opportunities so you never miss your next match.</p>
+          </article>
+          <article class="service-card">
+            <h3>Startup & Company Services</h3>
+            <p>Need a product build, MVP, or web app? We estimate, develop, and deliver quality work with transparent pricing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Project showcase</p>
+          <h2>Project opportunities that inspire action.</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card" onclick="window.open('/projects', '_blank')" style="cursor: pointer;">
+            <h3>Campus Marketplace App</h3>
+            <p>Build a student-to-student commerce platform with user profiles, item listings, and secure chat.</p>
+          </article>
+          <article class="project-card" onclick="window.open('/projects', '_blank')" style="cursor: pointer;">
+            <h3>Startup Launch Website</h3>
+            <p>Create a product landing page, brand identity, and launch campaign focused on conversions.</p>
+          </article>
+          <article class="project-card" onclick="window.open('/projects', '_blank')" style="cursor: pointer;">
+            <h3>AI-powered Learning Tool</h3>
+            <p>Develop an intelligent assistant that recommends resources and tracks student progress.</p>
+          </article>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+          <a class="btn btn-primary" href="/projects" target="_blank">Explore Full Database (120+ Real-Time Projects) 🚀</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section jobs-section" id="jobs">
+      <div class="container jobs-layout">
+        <div>
+          <div class="section-heading">
+            <p class="eyebrow">Jobs</p>
+            <h2>Fresh openings updated daily.</h2>
+          </div>
+          <div class="job-cards" id="jobsList">
+            <article class="job-card">
+              <span class="job-tag">Full-time</span>
+              <h3>Frontend Developer</h3>
+              <p>Work on responsive apps for a remote education startup.</p>
+            </article>
+            <article class="job-card">
+              <span class="job-tag">Internship</span>
+              <h3>Product Designer</h3>
+              <p>Design interfaces and workflows for student-facing solutions.</p>
+            </article>
+            <article class="job-card">
+              <span class="job-tag">Contract</span>
+              <h3>Marketing Analyst</h3>
+              <p>Support a new launch with research, branding, and conversion tracking.</p>
+            </article>
+          </div>
+        </div>
+        <div class="stats-panel">
+          <div class="stat">
+            <h4>1,250+</h4>
+            <p>Active opportunities</p>
+          </div>
+          <div class="stat">
+            <h4>320+</h4>
+            <p>Projects completed</p>
+          </div>
+          <div class="stat">
+            <h4>95%</h4>
+            <p>Partner satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section internships-section" id="internships">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Internships</p>
+          <h2>Real-Time Internships Offered by Shyoski Labs</h2>
+          <p>Accelerate your coding career with hands-on practice, industrial certification, and comprehensive career mentoring. Apply directly to launch your future.</p>
+        </div>
+        <div class="internship-grid">
+          <article class="internship-card" onclick="window.open('https://shyoski.in/', '_blank')">
+            <div class="internship-card-body">
+              <span class="internship-tag tag-web">Web Dev</span>
+              <h3>Full Stack Web Development</h3>
+              <p>Build real-world web products using professional modern stacks including React, Node.js, Express, and databases.</p>
+            </div>
+            <div class="internship-card-footer">
+              <span class="internship-duration">⏱️ 8 - 12 Weeks</span>
+              <span class="internship-link">Apply Now →</span>
+            </div>
+          </article>
+
+          <article class="internship-card" onclick="window.open('https://shyoski.in/', '_blank')">
+            <div class="internship-card-body">
+              <span class="internship-tag tag-sec">Security</span>
+              <h3>Cybersecurity</h3>
+              <p>Learn structural ethical hacking, penetration testing, networks defensive frameworks, and modern threat analysis.</p>
+            </div>
+            <div class="internship-card-footer">
+              <span class="internship-duration">⏱️ 8 - 12 Weeks</span>
+              <span class="internship-link">Apply Now →</span>
+            </div>
+          </article>
+
+          <article class="internship-card" onclick="window.open('https://shyoski.in/', '_blank')">
+            <div class="internship-card-body">
+              <span class="internship-tag tag-java">Backend</span>
+              <h3>Core Java</h3>
+              <p>Master object-oriented architecture, algorithms, data structures, multithreading, and advanced backend patterns.</p>
+            </div>
+            <div class="internship-card-footer">
+              <span class="internship-duration">⏱️ 8 - 12 Weeks</span>
+              <span class="internship-link">Apply Now →</span>
+            </div>
+          </article>
+
+          <article class="internship-card" onclick="window.open('https://shyoski.in/', '_blank')">
+            <div class="internship-card-body">
+              <span class="internship-tag tag-design">Design</span>
+              <h3>UI/UX Design</h3>
+              <p>Master product thinking, user research, wireframing, interactive prototyping, and system design in Figma.</p>
+            </div>
+            <div class="internship-card-footer">
+              <span class="internship-duration">⏱️ 8 - 12 Weeks</span>
+              <span class="internship-link">Apply Now →</span>
+            </div>
+          </article>
+
+          <article class="internship-card" onclick="window.open('https://shyoski.in/', '_blank')">
+            <div class="internship-card-body">
+              <span class="internship-tag tag-python">Automation</span>
+              <h3>Python Course</h3>
+              <p>Master pythonic scripting, data analysis, visual scraping, automated scripts, and AI algorithm pipelines.</p>
+            </div>
+            <div class="internship-card-footer">
+              <span class="internship-duration">⏱️ 8 - 12 Weeks</span>
+              <span class="internship-link">Apply Now →</span>
+            </div>
+          </article>
+
+          <article class="internship-card" onclick="window.open('https://shyoski.in/', '_blank')">
+            <div class="internship-card-body">
+              <span class="internship-tag tag-js">Scripting</span>
+              <h3>JavaScript Course</h3>
+              <p>Master structural DOM interfaces, asynchronous APIs, ES6+ logic foundations, and dynamic web applications.</p>
+            </div>
+            <div class="internship-card-footer">
+              <span class="internship-duration">⏱️ 8 - 12 Weeks</span>
+              <span class="internship-link">Apply Now →</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section news-section" id="news">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Hiring News & Insights</p>
+          <h2>Stay updated on industry trends and opportunities.</h2>
+        </div>
+        <div class="news-filters" id="newsFilters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="tech">Tech</button>
+          <button class="filter-btn" data-filter="startup">Startup</button>
+          <button class="filter-btn" data-filter="remote">Remote</button>
+          <button class="filter-btn" data-filter="internship">Internships</button>
+        </div>
+        <div class="news-grid" id="newsList">Loading news...</div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow">Talk to us</p>
+          <h2>Ready to launch your next job, project, or business idea?</h2>
+          <p>Send us your requirements and we’ll respond with a tailored estimate, timeline, and implementation plan.</p>
+          <div class="contact-details" style="margin-top: 1.5rem; line-height: 1.8;">
+            <p style="margin-bottom: 0.5rem;"><strong>📧 Email:</strong> <a href="mailto:dreamlance246@gmail.com" style="color:var(--teal)">dreamlance246@gmail.com</a></p>
+            <p><strong>📞 Phone:</strong> <a href="tel:8147010665" style="color:var(--teal)">+91 8147010665</a></p>            <p style="margin-top: 0.75rem; font-size: 0.95rem;"><a href="privacy.html" style="color:var(--teal); text-decoration:none;">Privacy Policy</a> | <a href="terms.html" style="color:var(--teal); text-decoration:none;">Terms &amp; Conditions</a></p>          </div>
+        </div>
+        <form class="contact-form" id="quoteForm">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your full name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Service interest
+            <select name="interest" required>
+              <option value="jobs">Jobs & internships</option>
+              <option value="projects">Student project support</option>
+              <option value="startup">Startup / company service</option>
+            </select>
+          </label>
+          <label>
+            Brief description
+            <textarea name="message" rows="4" placeholder="What do you need?" required></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Request Estimate</button>
+          <p class="form-status" id="formStatus"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 DreamLance. Real-time campus-to-career hub for builders, startups, and companies. | <a href="/admin" style="color:var(--teal); text-decoration:none;">Admin Login</a></p>
+      <p>Built for the bold, designed for the future.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

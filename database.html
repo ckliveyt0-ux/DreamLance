@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DreamLance Database</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .db-container { margin: 20px 0; }
+    .db-table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+    .db-table th, .db-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    .db-table th { background: #1E2640; color: var(--teal); font-weight: 600; font-family: var(--font-display); }
+    .db-table tr:hover { background: rgba(255, 255, 255, 0.03); }
+    .action-bar { margin-bottom: 16px; display: flex; gap: 8px; }
+    .action-bar button { padding: 8px 12px; border-radius: 6px; }
+    .summary { background: var(--card); padding: 16px; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--border); color: #F1F5F9; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/"><span class="retro-icon">🚀</span> DreamLance</a>
+      <nav class="nav-links">
+        <a href="/">Main Website</a>
+        <a href="/admin">Admin</a>
+        <a href="/database">Database</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>Database Browser & Export</h2>
+      
+      <div class="summary" id="summary">Loading…</div>
+
+      <div class="action-bar">
+        <button class="btn btn-primary" onclick="exportCSV()">Export CSV</button>
+        <button class="btn btn-secondary" onclick="refreshData()">Refresh</button>
+        <a class="btn btn-white" href="/">Go to Main Website</a>
+        <a class="btn btn-white" href="/admin">Back to Admin</a>
+      </div>
+
+      <div class="db-container">
+        <table class="db-table" id="dataTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Service</th>
+              <th>Message</th>
+              <th>Status</th>
+              <th>Estimate</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr><td colspan="8">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const authToken = 'Basic ' + btoa('Kiran1598:Kiran@1598');
+
+    async function refreshData(){
+      const tbody = document.getElementById('tbody');
+      tbody.innerHTML = '<tr><td colspan="8">Loading…</td></tr>';
+      try{
+        const r = await fetch('/api/requests/list', { headers: { Authorization: authToken } });
+        if(!r.ok){ tbody.innerHTML = '<tr><td colspan="8">Auth failed or error</td></tr>'; return }
+        const data = await r.json();
+        if(!data || data.length === 0){ 
+          tbody.innerHTML = '<tr><td colspan="8">No requests</td></tr>';
+          document.getElementById('summary').innerHTML = '<strong>0 requests</strong>';
+          return 
+        }
+        
+        const pending = data.filter(d=>d.status==='pending').length;
+        const estimated = data.filter(d=>d.status==='estimated').length;
+        document.getElementById('summary').innerHTML = `<strong>Total:</strong> ${data.length} · <strong>Pending:</strong> ${pending} · <strong>Estimated:</strong> ${estimated}`;
+
+        const html = data.map(d=>{
+          const est = (d.estimate_cost ? `$${d.estimate_cost} / ${d.estimate_timeline}d` : '—');
+          return `<tr>
+            <td>${d.id}</td>
+            <td>${d.name || '—'}</td>
+            <td>${d.email}</td>
+            <td>${d.interest}</td>
+            <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.message}</td>
+            <td>${d.status}</td>
+            <td>${est}</td>
+            <td>${new Date(d.created_at).toLocaleString()}</td>
+          </tr>`
+        }).join('\n');
+        tbody.innerHTML = html;
+      }catch(e){
+        tbody.innerHTML = '<tr><td colspan="8">Error loading data</td></tr>';
+      }
+    }
+
+    async function exportCSV(){
+      try{
+        const r = await fetch('/api/export-csv', { headers: { Authorization: authToken } });
+        if(!r.ok){ alert('Error exporting'); return }
+        const blob = await r.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'requests_' + new Date().toISOString().slice(0,10) + '.csv';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        a.remove();
+      }catch(e){ alert('Error exporting'); }
+    }
+
+    refreshData();
+  </script>
+</body>
+</html>

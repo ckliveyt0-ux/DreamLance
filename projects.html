@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DreamLance | Real-Time Project Explorer & Custom Blueprints</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Projects Explorer Page Custom Extensions */
+    .explorer-hero {
+      padding: 3.5rem 0 2rem;
+      background: radial-gradient(circle at 10% 20%, rgba(226, 126, 54, 0.03) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 80%, rgba(10, 60, 54, 0.03) 0%, transparent 50%);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat-badge {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .stat-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .stat-badge .num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-badge .label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+
+    .search-filter-bar {
+      position: sticky;
+      top: 72px;
+      z-index: 50;
+      background: rgba(11, 15, 29, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .bar-inner {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      border-radius: 30px;
+      border: 1.5px solid var(--border);
+      background-color: var(--card);
+      color: var(--teal);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .filter-select {
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      border: 1.5px solid var(--border);
+      background-color: var(--card);
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9rem;
+      outline: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-select:focus, .filter-select:hover {
+      border-color: var(--teal);
+    }
+
+    .tab-filters {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tab-btn {
+      padding: 0.6rem 1.25rem;
+      border-radius: 30px;
+      border: 1.5px solid var(--border);
+      background-color: var(--card);
+      color: var(--teal);
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .tab-btn:hover {
+      border-color: var(--teal);
+      transform: translateY(-1px);
+    }
+
+    .tab-btn.active {
+      background-color: var(--teal);
+      color: #0B0F19;
+      border-color: var(--teal);
+      box-shadow: 0 4px 12px rgba(13, 245, 227, 0.3);
+    }
+
+    .projects-dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-top: 1rem;
+    }
+
+    .explorer-card {
+      background-color: var(--card);
+      padding: 1.75rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+    }
+
+    .explorer-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--accent));
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .explorer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+
+    .explorer-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-meta-tags {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .category-badge {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+
+    .difficulty-tag {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .diff-beginner {
+      background-color: rgba(16, 245, 212, 0.12);
+      color: var(--teal-light);
+    }
+
+    .diff-intermediate {
+      background-color: rgba(13, 245, 227, 0.12);
+      color: var(--teal);
+    }
+
+    .diff-advanced {
+      background-color: rgba(255, 126, 64, 0.12);
+      color: var(--accent);
+    }
+
+    .explorer-card h3 {
+      font-size: 1.25rem;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+      transition: var(--transition);
+    }
+
+    .explorer-card:hover h3 {
+      color: var(--accent);
+    }
+
+    .explorer-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .tech-pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 1.25rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    .tech-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background-color: rgba(13, 245, 227, 0.08);
+      color: var(--teal);
+      padding: 3px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .tech-pill:hover {
+      background-color: var(--accent-glow);
+      color: var(--accent);
+      border-color: rgba(226, 126, 54, 0.2);
+    }
+
+    .explorer-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-card-action {
+      background-color: var(--teal);
+      color: #0B0F19;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn-card-action:hover {
+      background-color: var(--accent);
+      color: #0B0F19;
+      box-shadow: 0 4px 10px var(--accent-glow);
+    }
+
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--card);
+      border: 1px dashed var(--border);
+      border-radius: 20px;
+      margin-top: 2rem;
+    }
+
+    .no-results h3 {
+      font-size: 1.5rem;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+
+    .no-results p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Modal Form Extensions */
+    .modal-form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      text-align: left;
+      margin-top: 1.25rem;
+    }
+
+    .modal-form-grid label {
+      display: flex;
+      flex-direction: column;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--teal);
+      gap: 0.3rem;
+    }
+
+    .modal-form-grid input, 
+    .modal-form-grid textarea {
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background-color: #1E2640;
+      color: #F1F5F9;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .modal-form-grid input:focus, 
+    .modal-form-grid textarea:focus {
+      border-color: var(--accent);
+      background-color: #273152;
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .modal-close-x {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-close-x:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .bar-inner {
+        grid-template-columns: 1fr;
+      }
+      .projects-dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .projects-dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/"><span class="retro-icon">🚀</span> DreamLance</a>
+      <nav class="nav-links">
+        <a href="/#jobs">Jobs</a>
+        <a href="/#internships">Internships</a>
+        <a href="/projects" class="active">Projects</a>
+        <a href="/#services">Services</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <a class="btn btn-secondary" href="/admin" style="padding:8px 14px;">Admin Login</a>
+        <a class="btn btn-primary" href="/#contact" style="padding:8px 14px;">Start Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="explorer-hero">
+      <div class="container">
+        <p class="eyebrow">Interactive Innovation Sandbox</p>
+        <h1>Real-time Projects Database</h1>
+        <p>Browse 100-200 production-grade projects categorized across structural levels. Filter by tech stacks, difficulty levels, and domains. Instantly request custom blueprints, dedicated developer support, or transparent cost estimates to bring your ideas to life.</p>
+        
+        <div class="stats-row">
+          <div class="stat-badge">
+            <span class="num" id="statStudent">0</span>
+            <span class="label">Student Projects</span>
+          </div>
+          <div class="stat-badge">
+            <span class="num" id="statCompany">0</span>
+            <span class="label">Startup/Company</span>
+          </div>
+          <div class="stat-badge">
+            <span class="num" id="statIntern">0</span>
+            <span class="label">Internship Paths</span>
+          </div>
+          <div class="stat-badge">
+            <span class="num" id="statMini">0</span>
+            <span class="label">Mini Projects</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="search-filter-bar">
+      <div class="container" style="padding: 0 1.5rem;">
+        <div class="bar-inner">
+          <div class="search-input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by name, tech (React, Python), keywords..." />
+          </div>
+          <select id="diffSelect" class="filter-select">
+            <option value="all">All Difficulties</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+          <select id="techSelect" class="filter-select">
+            <option value="all">All Tech Stacks</option>
+          </select>
+          <button id="resetFiltersBtn" class="btn btn-white" style="padding: 0.65rem 1.25rem; border-radius: 30px;">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" style="padding: 2.5rem 0 5rem;">
+      <div class="container">
+        <div class="tab-filters">
+          <button class="tab-btn active" data-category="all">All Projects (0)</button>
+          <button class="tab-btn" data-category="Student Projects">Student Projects 🎓</button>
+          <button class="tab-btn" data-category="Company Projects">Company/Startup 🏢</button>
+          <button class="tab-btn" data-category="Internship Projects">Internships 💻</button>
+          <button class="tab-btn" data-category="Mini Projects">Mini Projects ⚡</button>
+        </div>
+
+        <div class="projects-dashboard-grid" id="projectsGrid">
+          <!-- Dynamically Rendered Cards -->
+          <div style="grid-column: 1/-1; text-align: center; padding: 4rem;">
+            <p style="color:var(--muted)">Spinning up database telemetry...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 DreamLance. Real-time campus-to-career hub for builders, startups, and companies. | <a href="/admin" style="color:var(--teal); text-decoration:none;">Admin Login</a></p>
+      <p>Built for the bold, designed for the future.</p>
+    </div>
+  </footer>
+
+  <!-- Project Request Modal -->
+  <div id="requestModal" class="dl-modal" style="display: none;">
+    <div class="card" style="max-width: 550px;">
+      <button class="modal-close-x" id="modalCloseBtn">&times;</button>
+      <h3 style="margin-top: 10px;">Request Project Estimate</h3>
+      <p class="meta" id="modalProjectTitle">Project Title</p>
+      <p style="color:var(--muted); font-size: 0.85rem; margin-bottom: 0.5rem;">We will review your request and send a detailed budget estimate, development blueprints, and delivery schedule to your email.</p>
+      
+      <form id="modalRequestForm" class="modal-form-grid">
+        <input type="hidden" id="modalProjectInterest" value="projects" />
+        <label>
+          Full Name
+          <input type="text" id="modalName" placeholder="Enter your full name" required />
+        </label>
+        <label>
+          Email Address
+          <input type="email" id="modalEmail" placeholder="you@example.com" required />
+        </label>
+        <label>
+          Requirements & Custom Specifications
+          <textarea id="modalMessage" rows="5" placeholder="Do you need specific tech modifications, custom frontend design, database configurations, or additional modules?" required></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit" style="margin-top: 10px; width: 100%;">Submit Estimation Request</button>
+        <p class="form-status" id="modalFormStatus" style="margin-top: 10px;"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      // Elements
+      const projectsGrid = document.getElementById('projectsGrid');
+      const searchInput = document.getElementById('searchInput');
+      const diffSelect = document.getElementById('diffSelect');
+      const techSelect = document.getElementById('techSelect');
+      const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      
+      // Modal elements
+      const requestModal = document.getElementById('requestModal');
+      const modalCloseBtn = document.getElementById('modalCloseBtn');
+      const modalProjectTitle = document.getElementById('modalProjectTitle');
+      const modalRequestForm = document.getElementById('modalRequestForm');
+      const modalName = document.getElementById('modalName');
+      const modalEmail = document.getElementById('modalEmail');
+      const modalMessage = document.getElementById('modalMessage');
+      const modalFormStatus = document.getElementById('modalFormStatus');
+
+      // State
+      let allProjects = [];
+      let currentCategory = 'all';
+      let currentDifficulty = 'all';
+      let currentTech = 'all';
+      let currentSearch = '';
+
+      // Initialize API Fetch
+      try {
+        const response = await fetch('/api/projects-list');
+        if (!response.ok) throw new Error('API server returned an error');
+        allProjects = await response.json();
+        
+        // Count Stats
+        calculateStats();
+        
+        // Populate Tech Dropdown
+        populateTechDropdown();
+        
+        // Render
+        applyFiltersAndRender();
+      } catch (err) {
+        console.error(err);
+        projectsGrid.innerHTML = `
+          <div class="no-results">
+            <h3>Database connection failed</h3>
+            <p>We encountered a connection latency issue while retrieving the project registry. Please try reloading the dashboard.</p>
+            <button class="btn btn-primary" onclick="location.reload()">Retry Connection</button>
+          </div>
+        `;
+      }
+
+      function calculateStats() {
+        const counts = {
+          'Student Projects': 0,
+          'Company Projects': 0,
+          'Internship Projects': 0,
+          'Mini Projects': 0
+        };
+
+        allProjects.forEach(p => {
+          if (counts[p.category] !== undefined) {
+            counts[p.category]++;
+          }
+        });
+
+        document.getElementById('statStudent').textContent = counts['Student Projects'];
+        document.getElementById('statCompany').textContent = counts['Company Projects'];
+        document.getElementById('statIntern').textContent = counts['Internship Projects'];
+        document.getElementById('statMini').textContent = counts['Mini Projects'];
+
+        // Update tabs count
+        tabBtns.forEach(btn => {
+          const category = btn.dataset.category;
+          if (category === 'all') {
+            btn.textContent = `All Projects (${allProjects.length})`;
+          } else {
+            const shortName = category.replace(' Projects', '');
+            let count = counts[category] || 0;
+            if (category === 'Company Projects') btn.textContent = `Company/Startup 🏢 (${count})`;
+            else if (category === 'Student Projects') btn.textContent = `Student Projects 🎓 (${count})`;
+            else if (category === 'Internship Projects') btn.textContent = `Internships 💻 (${count})`;
+            else if (category === 'Mini Projects') btn.textContent = `Mini Projects ⚡ (${count})`;
+          }
+        });
+      }
+
+      function populateTechDropdown() {
+        const techSet = new Set();
+        allProjects.forEach(p => {
+          if (p.tech && Array.isArray(p.tech)) {
+            p.tech.forEach(t => techSet.add(t));
+          }
+        });
+
+        // Sort tech stacks alphabetically
+        const sortedTechs = Array.from(techSet).sort();
+        sortedTechs.forEach(tech => {
+          const option = document.createElement('option');
+          option.value = tech;
+          option.textContent = tech;
+          techSelect.appendChild(option);
+        });
+      }
+
+      function applyFiltersAndRender() {
+        let filtered = allProjects;
+
+        // Apply Category Filter
+        if (currentCategory !== 'all') {
+          filtered = filtered.filter(p => p.category === currentCategory);
+        }
+
+        // Apply Difficulty Filter
+        if (currentDifficulty !== 'all') {
+          filtered = filtered.filter(p => p.difficulty === currentDifficulty);
+        }
+
+        // Apply Tech Filter
+        if (currentTech !== 'all') {
+          filtered = filtered.filter(p => p.tech && p.tech.includes(currentTech));
+        }
+
+        // Apply Search Term Filter
+        if (currentSearch.trim() !== '') {
+          const q = currentSearch.toLowerCase().trim();
+          filtered = filtered.filter(p => {
+            const titleMatch = (p.title || '').toLowerCase().includes(q);
+            const descMatch = (p.description || '').toLowerCase().includes(q);
+            const techMatch = p.tech && p.tech.some(t => t.toLowerCase().includes(q));
+            const catMatch = (p.category || '').toLowerCase().includes(q);
+            return titleMatch || descMatch || techMatch || catMatch;
+          });
+        }
+
+        renderProjects(filtered);
+      }
+
+      function renderProjects(projects) {
+        if (projects.length === 0) {
+          projectsGrid.innerHTML = `
+            <div class="no-results">
+              <h3>No matching projects found</h3>
+              <p>We couldn't find any projects matching your search query or filters. Reset your filters to view the full library.</p>
+              <button class="btn btn-primary" id="gridResetBtn">Reset All Filters</button>
+            </div>
+          `;
+          document.getElementById('gridResetBtn').addEventListener('click', resetAll);
+          return;
+        }
+
+        const html = projects.map(p => {
+          const diffClass = p.difficulty === 'Beginner' ? 'diff-beginner' : p.difficulty === 'Advanced' ? 'diff-advanced' : 'diff-intermediate';
+          const techPills = (p.tech || []).map(t => `<span class="tech-pill" data-tech="${t}">${t}</span>`).join('');
+          
+          return `
+            <article class="explorer-card">
+              <div>
+                <div class="card-meta-tags">
+                  <span class="category-badge">${p.category}</span>
+                  <span class="difficulty-tag ${diffClass}">${p.difficulty}</span>
+                </div>
+                <h3>${p.title}</h3>
+                <p>${p.description}</p>
+              </div>
+              <div>
+                <div class="tech-pill-container">
+                  ${techPills}
+                </div>
+                <div class="explorer-card-footer">
+                  <button class="btn-card-action" onclick="openQuoteModal('${p.id}', \`${p.title.replace(/'/g, "\\'")}\`)">Request Budget & Estimate →</button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('\n');
+
+        projectsGrid.innerHTML = html;
+
+        // Bind click event to tech pills in grid
+        document.querySelectorAll('.tech-pill').forEach(pill => {
+          pill.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const tech = this.dataset.tech;
+            techSelect.value = tech;
+            currentTech = tech;
+            applyFiltersAndRender();
+            // Scroll to search filters bar smoothly
+            document.querySelector('.search-filter-bar').scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+      }
+
+      function resetAll() {
+        searchInput.value = '';
+        diffSelect.value = 'all';
+        techSelect.value = 'all';
+        
+        tabBtns.forEach(b => b.classList.remove('active'));
+        document.querySelector('.tab-btn[data-category="all"]').classList.add('active');
+
+        currentCategory = 'all';
+        currentDifficulty = 'all';
+        currentTech = 'all';
+        currentSearch = '';
+
+        applyFiltersAndRender();
+      }
+
+      // Filter Event Listeners
+      searchInput.addEventListener('input', function() {
+        currentSearch = this.value;
+        applyFiltersAndRender();
+      });
+
+      diffSelect.addEventListener('change', function() {
+        currentDifficulty = this.value;
+        applyFiltersAndRender();
+      });
+
+      techSelect.addEventListener('change', function() {
+        currentTech = this.value;
+        applyFiltersAndRender();
+      });
+
+      resetFiltersBtn.addEventListener('click', resetAll);
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentCategory = this.dataset.category;
+          applyFiltersAndRender();
+        });
+      });
+
+      // Modal Functions
+      window.openQuoteModal = function(projectId, projectTitle) {
+        modalProjectTitle.textContent = `${projectTitle} (Ref: ${projectId})`;
+        modalMessage.value = `I am interested in getting a custom implementation, development blueprint, and price estimate for the project: "${projectTitle}" (ID: ${projectId}).\n\nPlease let me know the technical approach, estimated timeline, and custom modifications budget. Thanks!`;
+        modalFormStatus.textContent = '';
+        requestModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Disable scroll background
+      };
+
+      function closeQuoteModal() {
+        requestModal.style.display = 'none';
+        document.body.style.overflow = ''; // Re-enable scroll
+        modalRequestForm.reset();
+      }
+
+      modalCloseBtn.addEventListener('click', closeQuoteModal);
+      requestModal.addEventListener('click', function(e) {
+        if (e.target === requestModal) {
+          closeQuoteModal();
+        }
+      });
+
+      // Modal Form Submission
+      modalRequestForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const data = {
+          name: modalName.value,
+          email: modalEmail.value,
+          interest: 'projects',
+          message: modalMessage.value
+        };
+
+        modalFormStatus.textContent = 'Transmitting data to server...';
+        modalFormStatus.style.color = 'var(--muted)';
+
+        try {
+          const res = await fetch('/api/requests', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          
+          if (res.ok) {
+            modalFormStatus.textContent = 'Success! Your project estimate request has been registered. Check your email shortly!';
+            modalFormStatus.style.color = 'var(--teal)';
+            setTimeout(() => {
+              closeQuoteModal();
+            }, 3000);
+          } else {
+            const j = await res.json();
+            modalFormStatus.textContent = j.error || 'Server rejected request. Please check input parameters.';
+            modalFormStatus.style.color = 'crimson';
+          }
+        } catch (err) {
+          modalFormStatus.textContent = 'Network offline. Unable to connect to estimation server.';
+          modalFormStatus.style.color = 'crimson';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DreamLance Admin</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .login { max-width: 480px; margin: 20px auto; background: var(--card); padding: 24px; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow-md); }
+    .login label { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; font-weight: 600; color: var(--teal); font-family: var(--font-display); font-size: 0.9rem; }
+    .req { background: var(--card); padding: 20px; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+    .req input { padding: 0.5rem 0.75rem; font-size: 0.85rem; border-radius: 6px; }
+    .preview { background: #1E2640; border: 1px solid var(--border); padding: 12px; border-radius: 8px; margin-top: 12px; font-size: 13px; font-family: monospace; max-height: 200px; overflow-y: auto; color: #F1F5F9; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/"><span class="retro-icon">🚀</span> DreamLance Admin</a>
+      <nav class="nav-links">
+        <a href="/" class="btn btn-white" style="font-size:14px;padding:6px 12px;">Main Website</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="section">
+      <h2>Admin Login</h2>
+      <div class="login">
+        <label>Username<input id="u" placeholder="Enter username"/></label>
+        <label>Password<input id="p" type="password" placeholder="Enter password"/></label>
+        <div style="margin-top:8px"><button id="login" class="btn btn-primary">Sign in</button></div>
+        <p id="loginMsg" style="color:var(--muted)"></p>
+      </div>
+
+      <div id="adminArea" style="display:none">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <h3>Incoming Requests</h3>
+          <a class="btn btn-secondary" href="/database">Go to Database Dashboard 📊</a>
+        </div>
+        <div id="list">Loading…</div>
+      </div>
+    </section>
+  </main>
+  <script>
+    let authToken = null;
+    document.getElementById('login').addEventListener('click', ()=>{
+      const u = document.getElementById('u').value;
+      const p = document.getElementById('p').value;
+      authToken = 'Basic ' + btoa(u + ':' + p);
+      // test fetch
+      fetch('/api/requests/list', { headers: { Authorization: authToken } }).then(r=>{
+        if(r.status === 200){
+          document.getElementById('loginMsg').textContent = 'Signed in.';
+          document.getElementById('adminArea').style.display='block';
+          document.querySelector('.login').style.display='none';
+          loadList();
+        } else {
+          document.getElementById('loginMsg').textContent = 'Sign-in failed (check creds).';
+        }
+      }).catch(e=>{ document.getElementById('loginMsg').textContent = 'Error contacting server.' });
+    });
+
+    async function loadList(){
+      const el = document.getElementById('list');
+      el.innerHTML = 'Loading…';
+      try{
+        const r = await fetch('/api/requests/list', { headers: { Authorization: authToken } });
+        if(r.status === 401){
+          handleUnauthorized();
+          return;
+        }
+        const data = await r.json();
+        if(!data || data.length === 0){ el.innerHTML = '<p>No requests yet.</p>'; return }
+        const html = data.map(it=>{
+          const note = it.admin_note || '';
+          const est = (it.estimate_cost ? ('$'+it.estimate_cost + ' / ' + it.estimate_timeline + ' days') : '—');
+          return `<div class="req"><strong>${it.name || 'Anonymous'}</strong> · <span style="color:var(--muted)">${it.email}</span><p>${it.message}</p><p><strong>Service:</strong> ${it.interest} · <strong>Estimate:</strong> ${est}</p><small style="color:var(--muted);">${it.created_at}</small>
+            <div style="margin-top:8px">
+              <input placeholder="cost (USD)" id="cost_${it.id}" style="width:110px;margin-right:6px" />
+              <input placeholder="timeline (days)" id="time_${it.id}" style="width:140px;margin-right:6px" />
+              <input placeholder="note" id="note_${it.id}" style="width:240px;margin-right:6px" />
+              <button class="btn btn-secondary" onclick="previewEmail(${it.id})">Preview Email</button>
+              <button class="btn btn-primary" onclick="setEstimate(${it.id})">Save & Send</button>
+            </div>
+            <div id="preview_${it.id}"></div>
+          </div>`
+        }).join('\n')
+        el.innerHTML = html;
+      }catch(e){ el.innerHTML = '<p>Error loading requests</p>'; }
+    }
+
+    function handleUnauthorized(){
+      alert('Session expired or unauthorized credentials. Please sign in again.');
+      document.getElementById('adminArea').style.display = 'none';
+      document.querySelector('.login').style.display = 'block';
+      document.getElementById('loginMsg').textContent = 'Please check your credentials and sign in again.';
+      authToken = null;
+    }
+
+    async function previewEmail(id){
+      const cost = document.getElementById('cost_'+id).value;
+      const timeline = document.getElementById('time_'+id).value;
+      const note = document.getElementById('note_'+id).value;
+      if(!cost || !timeline){ alert('cost and timeline required'); return }
+      const previewDiv = document.getElementById('preview_'+id);
+      previewDiv.innerHTML = 'Loading preview…';
+      try{
+        const r = await fetch('/api/requests/'+id+'/preview-email', { method:'POST', headers: { 'Content-Type':'application/json', Authorization: authToken }, body: JSON.stringify({ cost: Number(cost), timeline: Number(timeline), note }) });
+        if(r.status === 401){
+          handleUnauthorized();
+          return;
+        }
+        if(r.ok){
+          const json = await r.json();
+          previewDiv.innerHTML = `<div class="preview"><strong>Subject:</strong> ${json.subject}<br><br><strong>Body:</strong><br>${json.body.replace(/\n/g, '<br>')}</div>`;
+        } else {
+          previewDiv.innerHTML = '<p style="color:crimson">Error loading preview</p>';
+        }
+      }catch(e){ previewDiv.innerHTML = '<p style="color:crimson">Error</p>'; }
+    }
+
+    async function setEstimate(id){
+      const cost = document.getElementById('cost_'+id).value;
+      const timeline = document.getElementById('time_'+id).value;
+      const note = document.getElementById('note_'+id).value;
+      if(!cost || !timeline){ alert('cost and timeline required'); return }
+      try{
+        const r = await fetch('/api/requests/'+id+'/estimate', { method:'POST', headers: { 'Content-Type':'application/json', Authorization: authToken }, body: JSON.stringify({ cost: Number(cost), timeline: Number(timeline), note }) });
+        if(r.status === 401){
+          handleUnauthorized();
+          return;
+        }
+        if(r.ok){ alert('Saved and emailed'); loadList(); }
+        else{ alert('Error saving'); }
+      }catch(e){ alert('Error contacting server'); }
+    }
+
+  </script>
+</body>
+</html>

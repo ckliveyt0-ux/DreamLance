@@ -1,0 +1,962 @@
+[
+  {
+    "id": "p-1",
+    "title": "AI-Powered Patient Diagnostics Portal",
+    "description": "An advanced medical dashboard that parses patient lab results and utilizes local LLM inference to provide diagnostic insights and highlight health patterns.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["Python", "PyTorch", "React", "FastAPI"]
+  },
+  {
+    "id": "p-2",
+    "title": "Decentralized Academic Credential Verification",
+    "description": "A blockchain-based verification platform that enables educational institutions to issue tamper-proof digital degree certificates.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["Ethereum", "Solidity", "Web3.js", "Node.js"]
+  },
+  {
+    "id": "p-3",
+    "title": "IoT Campus Smart Parking System",
+    "description": "A real-time parking space monitoring and booking system using ultrasonic sensors, Raspberry Pi, and a responsive frontend.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["C++", "Python", "MQTT", "React Native"]
+  },
+  {
+    "id": "p-4",
+    "title": "Autonomous Drone Navigation for Security",
+    "description": "Computer vision software enabling drones to autonomously patrol pre-defined corridors and flag unauthorized personnel using YOLOv8.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["OpenCV", "ROS", "Python", "TensorFlow"]
+  },
+  {
+    "id": "p-5",
+    "title": "E-Commerce Recommendation System via Graphs",
+    "description": "A graph database implementation that analyzes customer browsing behavior and provides dynamic product recommendations.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["Neo4j", "Python", "Flask", "GraphQL"]
+  },
+  {
+    "id": "p-6",
+    "title": "Peer-to-Peer Campus Textbook Exchange",
+    "description": "A student marketplace specifically designed for buying, selling, or trading textbooks within the campus network.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "Express.js", "MongoDB", "TailwindCSS"]
+  },
+  {
+    "id": "p-7",
+    "title": "AR Interior Design Mobile Application",
+    "description": "An augmented reality mobile app that lets users overlay 3D furniture models onto physical rooms in real time.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["Unity", "ARKit", "C#", "Firebase"]
+  },
+  {
+    "id": "p-8",
+    "title": "Automated Smart Home Energy Optimizer",
+    "description": "An analytics dashboard that integrates with home appliances to monitor power usage and suggests optimal utility schedules.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Node-RED", "JavaScript", "InfluxDB", "Grafana"]
+  },
+  {
+    "id": "p-9",
+    "title": "Sign Language Interpreter in Real Time",
+    "description": "A web application that uses a computer webcam to translate sign language gestures into text and spoken audio.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["Mediapipe", "OpenCV", "React", "Web Speech API"]
+  },
+  {
+    "id": "p-10",
+    "title": "Student Mood & Mental Health Monitor",
+    "description": "An anonymous student check-in app providing mood tracking, journal analysis, and automated access to counselors.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Flutter", "Node.js", "PostgreSQL", "NLTK"]
+  },
+  {
+    "id": "p-11",
+    "title": "Voice-Controlled Smart Kitchen Scale",
+    "description": "IoT weight scale software that answers voice instructions about recipe measurements and calorie tracking.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Python", "Raspberry Pi", "SpeechRecognition", "SQLAlchemy"]
+  },
+  {
+    "id": "p-12",
+    "title": "Generative Music Sandbox",
+    "description": "An interactive canvas that generates ambient electronic music based on mouse coordinates, user drawing, and speed.",
+    "category": "Student Projects",
+    "difficulty": "Beginner",
+    "tech": ["Tone.js", "HTML5 Canvas", "JavaScript", "CSS3"]
+  },
+  {
+    "id": "p-13",
+    "title": "Crowdsourced Local Traffic Reporter",
+    "description": "A map-based navigation web application where users pin real-time traffic jams, speed traps, and road work.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Leaflet.js", "React", "Express.js", "Redis"]
+  },
+  {
+    "id": "p-14",
+    "title": "Gamified Recycling Web App",
+    "description": "An application where students upload pictures of recycled trash to earn eco-points redeemable at campus cafes.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "FastAPI", "SQLite", "Google Cloud Vision"]
+  },
+  {
+    "id": "p-15",
+    "title": "Biometric Authentication Framework via Key-Strokes",
+    "description": "A security system that authenticates users based on their unique typing rhythm and speed signature.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["Python", "Scikit-Learn", "Flask", "HTML5"]
+  },
+  {
+    "id": "p-16",
+    "title": "Virtual Reality Classroom Sandbox",
+    "description": "An interactive classroom space built in WebXR allowing users to sit together and interact with dynamic 3D objects.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["A-Frame", "Three.js", "WebXR", "WebSockets"]
+  },
+  {
+    "id": "p-17",
+    "title": "Automated Code Assessment Dashboard",
+    "description": "An online IDE that runs student code against standard test cases and returns comprehensive performance summaries.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["Docker", "Go", "Vue.js", "PostgreSQL"]
+  },
+  {
+    "id": "p-18",
+    "title": "Smart Irrigation Soil Analyzer",
+    "description": "Microcontroller code that monitors soil moisture, temperature, and nitrogen levels to automate sprinkler intervals.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["C++", "Arduino", "ESP8266", "ThingsBoard"]
+  },
+  {
+    "id": "p-19",
+    "title": "Multiplayer Retro Arcade Room",
+    "description": "A web browser retro arcade game lobby supporting classic multiplayer setups and live room leaderboards.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Phaser3", "Socket.io", "JavaScript", "Redis"]
+  },
+  {
+    "id": "p-20",
+    "title": "Crowdfunded Research Grant Marketplace",
+    "description": "A platform enabling university researchers to present project proposals to the public and accept micro-donations.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["React", "Django REST Framework", "PostgreSQL", "Stripe API"]
+  },
+  {
+    "id": "p-21",
+    "title": "Nostalgic Campus Event Organizer",
+    "description": "A bulletin-style board designed to resemble vintage polaroid pictures where students coordinate retro activities.",
+    "category": "Student Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "CSS3", "JavaScript", "LocalStorage"]
+  },
+  {
+    "id": "p-22",
+    "title": "Local Farmers Network Mapping App",
+    "description": "A geospatial interface connecting regional organic growers to consumers for subscription veggie baskets.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Mapbox", "Vue.js", "Django", "PostGIS"]
+  },
+  {
+    "id": "p-23",
+    "title": "Digital Art Asset Minting Framework",
+    "description": "A simple sandboxed playground enabling students to sketch vector art and output decentralized ownership tokens.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["Solidity", "Hardhat", "React", "Ethers.js"]
+  },
+  {
+    "id": "p-24",
+    "title": "Real-Time Group Travel Planner",
+    "description": "A collaborative itinerary builder letting travel groups vote on lodging, activities, and budget targets in real time.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "Node.js", "WebSockets", "MongoDB"]
+  },
+  {
+    "id": "p-25",
+    "title": "Subtitles Auto-Synchronizer",
+    "description": "Audio signal processing software that automatically shifts SRT subtitle files to align with speech tracks.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["Python", "Librosa", "Flask", "FFmpeg"]
+  },
+  {
+    "id": "p-26",
+    "title": "Campus Gym Workout Companion",
+    "description": "A web app detailing campus gym availability and providing customized machine-learning rep suggestions.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "FastAPI", "TensorFlow Lite", "SQLite"]
+  },
+  {
+    "id": "p-27",
+    "title": "Collaborative Virtual Whiteboard",
+    "description": "An infinitely-scaling canvas for real-time remote brainstorming sessions, featuring drag-and-drop notes and sketch tools.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["JavaScript", "HTML5 Canvas", "WebSockets", "Express"]
+  },
+  {
+    "id": "p-28",
+    "title": "Automated Resume Screener & Enhancer",
+    "description": "An analytical engine that scans PDFs against job postings, calculates scores, and recommends keyword inclusions.",
+    "category": "Student Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Python", "SpaCy", "Flask", "Bootstrap"]
+  },
+  {
+    "id": "p-29",
+    "title": "Audio Waveform Art Generator",
+    "description": "A creative app that takes micro-phone input or MP3 uploads and builds unique high-resolution printable vector patterns.",
+    "category": "Student Projects",
+    "difficulty": "Beginner",
+    "tech": ["Web Audio API", "SVG.js", "JavaScript", "CSS3"]
+  },
+  {
+    "id": "p-30",
+    "title": "Campus Shuttle Live Route Finder",
+    "description": "An interactive map that coordinates live GPS telemetry from university shuttle buses to show precise arrival projections.",
+    "category": "Student Projects",
+    "difficulty": "Advanced",
+    "tech": ["React", "Node.js", "Mapbox GL", "WebSockets"]
+  },
+  {
+    "id": "p-31",
+    "title": "Multi-Tenant SaaS HR Management Engine",
+    "description": "A highly scalable enterprise platform that structures payroll, shifts, leave requests, and tax documentation across multiple organizations.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["Next.js", "NestJS", "PostgreSQL", "Docker"]
+  },
+  {
+    "id": "p-32",
+    "title": "Real-Time Supply Chain Telemetry Board",
+    "description": "A live-syncing dashboard detailing logistics route conditions, container temperatures, and predictive delivery times.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["Vue.js", "Go", "Apache Kafka", "Cassandra"]
+  },
+  {
+    "id": "p-33",
+    "title": "Automated Legal Document Parser",
+    "description": "An AI service built for law firms that scans contracts, flags compliance anomalies, and summarizes liability points.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["Python", "OpenAI API", "React", "Supabase"]
+  },
+  {
+    "id": "p-34",
+    "title": "Customer Loyalty & Rewards Mobile System",
+    "description": "A white-label mobile app with a QR-code ticket scanner and tiered point accumulation rules for retail hubs.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React Native", "Spring Boot", "MySQL", "AWS RDS"]
+  },
+  {
+    "id": "p-35",
+    "title": "HIPAA-Compliant Doctor Chat Service",
+    "description": "A highly secure tele-health messaging software featuring end-to-end encryption and metadata stripping mechanisms.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["WebRTC", "Go", "React", "PostgreSQL"]
+  },
+  {
+    "id": "p-36",
+    "title": "Automated Invoicing & Tax Calculator",
+    "description": "An API service that manages recurring enterprise invoices and dynamically formats local tax ratios based on location.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "Node.js", "Stripe SDK", "PostgreSQL"]
+  },
+  {
+    "id": "p-37",
+    "title": "Custom Corporate Training Portal",
+    "description": "An interactive LMS built to host onboarding courses, quizzes, and automated PDF certification processes.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Vue.js", "Express.js", "MongoDB", "AWS S3"]
+  },
+  {
+    "id": "p-38",
+    "title": "High-Frequency Sales Analytics Engine",
+    "description": "An aggregation service processing millions of transactional lines hourly to detail predictive seasonal demands.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["Java", "Scala", "Apache Spark", "Redis"]
+  },
+  {
+    "id": "p-39",
+    "title": "Multi-Channel Customer Help Desk",
+    "description": "A shared inbox tool unifying support emails, live site chats, and text messages into a structured ticket routing queue.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "Express.js", "Socket.io", "MongoDB"]
+  },
+  {
+    "id": "p-40",
+    "title": "Automated Social Ad Optimization Tool",
+    "description": "A service that queries ad performance metrics and uses statistical models to reallocate budgets dynamically across campaigns.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["Python", "FastAPI", "React", "Google Ads API"]
+  },
+  {
+    "id": "p-41",
+    "title": "Secure Corporate Password Vault",
+    "description": "An internal self-hosted credential repository featuring zero-knowledge hashing and group-permission control levels.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["Rust", "React", "SQLite", "CryptoJS"]
+  },
+  {
+    "id": "p-42",
+    "title": "Automated Cold Email Sequence CRM",
+    "description": "A startup tool that coordinates personalized email sequences, monitors link clicks, and profiles warm leads automatically.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Next.js", "FastAPI", "Redis Queue", "PostgreSQL"]
+  },
+  {
+    "id": "p-43",
+    "title": "Hotel Reservation & Room Customizer",
+    "description": "An online portal with interactive 2D maps letting guests customize room configurations during bookings.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Angular", "NestJS", "MySQL", "Three.js"]
+  },
+  {
+    "id": "p-44",
+    "title": "Automated Social Media Post Scheduling Suite",
+    "description": "A calendar dashboard letting teams design posts, schedule queues, and analyze aggregated post reach.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "Node.js", "Redis", "MongoDB"]
+  },
+  {
+    "id": "p-45",
+    "title": "Enterprise Cloud Inventory Synchronizer",
+    "description": "A pipeline script that syncs brick-and-mortar barcode scanners to cloud e-commerce inventories with milliseconds latency.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["Go", "gRPC", "Redis", "Shopify API"]
+  },
+  {
+    "id": "p-46",
+    "title": "Medical Facility Equipment Scheduler",
+    "description": "An scheduling allocation framework preventing double-booking of sensitive scanners and surgery rooms.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "FastAPI", "PostgreSQL", "TailwindCSS"]
+  },
+  {
+    "id": "p-47",
+    "title": "Real-Time Dynamic Menu for Restaurants",
+    "description": "A dynamic tablet menu system updating prices, dish availability, and allergy warnings across tables automatically.",
+    "category": "Company Projects",
+    "difficulty": "Beginner",
+    "tech": ["Vue.js", "Firebase", "HTML5", "CSS3"]
+  },
+  {
+    "id": "p-48",
+    "title": "B2B Wholesale Procurement Portal",
+    "description": "A secure order hub managing volume discounts, custom payment terms, and automated shipping estimations.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Next.js", "Django REST Framework", "PostgreSQL"]
+  },
+  {
+    "id": "p-49",
+    "title": "Vulnerability Risk Assessor",
+    "description": "Internal network auditing tool displaying structural visual security grades of all connected servers.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["Python", "Nmap Library", "Flask", "React"]
+  },
+  {
+    "id": "p-50",
+    "title": "Automated Customer Feedback Sentiment Engine",
+    "description": "Text classification pipeline that categorizes review files into product design bug reports, and UX highlights.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Python", "Hugging Face", "FastAPI", "MongoDB"]
+  },
+  {
+    "id": "p-51",
+    "title": "B2B Client Billing Aggregator",
+    "description": "Enterprise software compiling hourly rates, active dev tasks, and server costs into interactive PDF statements.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "Express.js", "PDFKit", "PostgreSQL"]
+  },
+  {
+    "id": "p-52",
+    "title": "Real Estate Virtual Tour Platform",
+    "description": "A portal featuring interactive 360-degree photo displays, agent scheduling, and home cost metrics.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "Ruby on Rails", "Pannellum", "PostgreSQL"]
+  },
+  {
+    "id": "p-53",
+    "title": "Multi-Store Gift Card Hub",
+    "description": "A central platform generating unique codes for local business alliances with secure tracking ledgers.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Flutter", "Node.js", "MySQL", "CryptoJS"]
+  },
+  {
+    "id": "p-54",
+    "title": "Corporate Expense Approval Pipeline",
+    "description": "Form submission system routes employee receipt files to regional managers according to cost tiers.",
+    "category": "Company Projects",
+    "difficulty": "Beginner",
+    "tech": ["Next.js", "Supabase", "TailwindCSS", "Resend API"]
+  },
+  {
+    "id": "p-55",
+    "title": "Secure NDA Generator & Signer",
+    "description": "Web service supporting legal template fills, user mouse signing, and cryptographic signature stamps.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["HTML5 Canvas", "React", "Node.js", "MongoDB"]
+  },
+  {
+    "id": "p-56",
+    "title": "Fitness Club Check-in Portal",
+    "description": "A dynamic barcode validation app that coordinates gym club membership files in real-time.",
+    "category": "Company Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "CSS3", "JavaScript", "Firebase"]
+  },
+  {
+    "id": "p-57",
+    "title": "Warehouse RFID Tracker Dashboard",
+    "description": "Analytics interface translating RFID sensor scans to spatial heatmaps of items in warehouse zones.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["Node.js", "ESP32", "InflowDB", "React"]
+  },
+  {
+    "id": "p-58",
+    "title": "Localized Food Coupon Distribution Engine",
+    "description": "Geolocation API distributing digital restaurant discounts to shoppers in proximity.",
+    "category": "Company Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React Native", "FastAPI", "Redis", "GeoJSON"]
+  },
+  {
+    "id": "p-59",
+    "title": "Corporate Event Virtual Lobby",
+    "description": "A unified platform hosting video sessions, virtual Q&A cards, and networking lounges for remote conventions.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["React", "WebRTC", "Socket.io", "Express.js"]
+  },
+  {
+    "id": "p-60",
+    "title": "Interactive KPI Board for Executives",
+    "description": "High-end corporate dashboard summarizing financial parameters, user churn, and sales benchmarks.",
+    "category": "Company Projects",
+    "difficulty": "Advanced",
+    "tech": ["Next.js", "GraphQL", "PostgreSQL", "D3.js"]
+  },
+  {
+    "id": "p-61",
+    "title": "Collaborative Task Manager App",
+    "description": "A Kanban board dashboard letting teams manage tasks, set deadlines, and attach file resources.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "Express.js", "MongoDB", "Node.js"]
+  },
+  {
+    "id": "p-62",
+    "title": "Dynamic Blog Engine with MDX Support",
+    "description": "A content management platform using local Markdown files to render code snippets and interactive React widgets.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["Next.js", "MDX", "TailwindCSS", "Framer Motion"]
+  },
+  {
+    "id": "p-63",
+    "title": "API Analytics Monitoring Middleware",
+    "description": "Server middleware that intercepts API requests to track response times, payloads, status codes, and user origins.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Express.js", "Redis", "InfluxDB", "Grafana"]
+  },
+  {
+    "id": "p-64",
+    "title": "Weather Outlook & Map Dashboard",
+    "description": "A geospatial interface tracking real-time precipitation radars and detailing regional forecasts.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "OpenWeatherMap API", "Leaflet.js"]
+  },
+  {
+    "id": "p-65",
+    "title": "Markdown Editor with Real-Time Preview",
+    "description": "A sleek browser code workspace letting writers compose text formats and see layouts live.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["React", "Marked.js", "CSS3", "HTML5"]
+  },
+  {
+    "id": "p-66",
+    "title": "Dynamic Survey & Form Builder",
+    "description": "A drag-and-drop tool that generates input forms, schedules surveys, and tracks aggregated results.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "Node.js", "MongoDB", "Chart.js"]
+  },
+  {
+    "id": "p-67",
+    "title": "Recipe Hub with Ingredient Matching",
+    "description": "A creative search engine listing meals you can cook based strictly on current fridge contents.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["Vue.js", "Spoonacular API", "TailwindCSS"]
+  },
+  {
+    "id": "p-68",
+    "title": "Crypto Coins Price Tracker & Portfolio",
+    "description": "Live tickers mapping digital currencies alongside custom target alerts and transaction histories.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "CoinGecko API", "Chart.js", "Firebase"]
+  },
+  {
+    "id": "p-69",
+    "title": "Minimal Chat Room with Channels",
+    "description": "Instant messaging workspace showcasing categorized channels and emoji updates.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["WebSockets", "JavaScript", "Express.js", "Node.js"]
+  },
+  {
+    "id": "p-70",
+    "title": "Developer Digital Profile Builder",
+    "description": "A portfolio template generating customizable resume layouts directly from GitHub URLs.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["React", "GitHub REST API", "Vanilla CSS"]
+  },
+  {
+    "id": "p-71",
+    "title": "Digital Audio Soundboard",
+    "description": "Interactive pads that load and trigger retro arcade sounds or recorded speech files.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5 Audio", "JavaScript", "CSS3 Grid"]
+  },
+  {
+    "id": "p-72",
+    "title": "CSV File Visualizer & Graph Generator",
+    "description": "Web utility letting users upload dataset files and generate interactive scatter charts instantly.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["PapaParse", "React", "Chart.js", "TailwindCSS"]
+  },
+  {
+    "id": "p-73",
+    "title": "Book Library & Digital Archive",
+    "description": "A catalogue dashboard letting curators log items, edit descriptions, and search collections.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["React", "Google Books API", "LocalStorage"]
+  },
+  {
+    "id": "p-74",
+    "title": "CSS Gradient Sandbox & Copy Tool",
+    "description": "Visual designer letting coders build complex gradient transitions and copy CSS tags.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "CSS3", "JavaScript", "Clipboard API"]
+  },
+  {
+    "id": "p-75",
+    "title": "Personal Budget Planner",
+    "description": "A tracker that calculates monthly spending categories and highlights saving thresholds.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["React", "ChartJS", "LocalStorage", "CSS3"]
+  },
+  {
+    "id": "p-76",
+    "title": "Mock REST API Endpoint Server",
+    "description": "A custom web dashboard letting developers design structural API payloads and copy mock endpoints.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Node.js", "Express.js", "Nedb", "JavaScript"]
+  },
+  {
+    "id": "p-77",
+    "title": "Retro Space Shoot Arcade Game",
+    "description": "A pixel-art browser game featuring player coordinates control, laser beams, and scoring.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Phaser3", "HTML5 Canvas", "JavaScript"]
+  },
+  {
+    "id": "p-78",
+    "title": "Dynamic QR Code Badge Generator",
+    "description": "A bulk builder generating codes for visitor lists and packaging text/URL links.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["React", "QRCode.js", "Bootstrap"]
+  },
+  {
+    "id": "p-79",
+    "title": "Job Search Aggregator Mobile",
+    "description": "A specialized job feed query app filtering remote developer openings across platforms.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Flutter", "Remotive API", "Dart"]
+  },
+  {
+    "id": "p-80",
+    "title": "Pomodoro Focus Study Room",
+    "description": "Nostalgic collegiate classroom layout displaying customized timers, ambient noise, and logs.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "CSS3", "JavaScript", "WebAudio"]
+  },
+  {
+    "id": "p-81",
+    "title": "Markdown PDF Slide Exporter",
+    "description": "Web app converting structured markdown bullets to high-resolution slide layouts.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "jsPDF", "MarkdownParser"]
+  },
+  {
+    "id": "p-82",
+    "title": "Figma Plugin for Mock Text",
+    "description": "A simple designer extension filling select blocks with realistic tech placeholders.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["Figma API", "HTML5", "JavaScript"]
+  },
+  {
+    "id": "p-83",
+    "title": "URL Shortener & Click Tracker",
+    "description": "A custom redirection server monitoring referral sources and counting total redirections.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Node.js", "Express.js", "Redis", "MongoDB"]
+  },
+  {
+    "id": "p-84",
+    "title": "E-Commerce Cart Checkout Demo",
+    "description": "A frontend UI sandbox managing cart item sums and validating payment templates.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["React", "Redux Toolkit", "Vanilla CSS"]
+  },
+  {
+    "id": "p-85",
+    "title": "Virtual Piano & Music Recorder",
+    "description": "Play polyphonic piano keys on keyboard inputs and record note tracks in raw JSON.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["WebAudio", "JavaScript", "CSS3 Grid"]
+  },
+  {
+    "id": "p-86",
+    "title": "Local Store Locator Map",
+    "description": "A dynamic location mapper displaying search bounds and calculating nearest shop markers.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["React", "Leaflet.js", "GeoIP API"]
+  },
+  {
+    "id": "p-87",
+    "title": "Task Time Tracker & Log",
+    "description": "A chrome web extension logging active domain tabs and detailing charts of daily study focus.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Chrome Extension API", "ChartJS", "HTML5"]
+  },
+  {
+    "id": "p-88",
+    "title": "E-Card Greeting Design Pad",
+    "description": "Custom canvas editor let users place vintage stamps, write retro fonts, and export image assets.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5 Canvas", "Fabric.js", "JavaScript"]
+  },
+  {
+    "id": "p-89",
+    "title": "Stock Alert Notification Client",
+    "description": "Pipeline service querying indices and sending email targets when price bounds break.",
+    "category": "Internship Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Python", "YahooFinanceAPI", "SMTP", "Flask"]
+  },
+  {
+    "id": "p-90",
+    "title": "Interactive Periodic Table",
+    "description": "An educational grid showcasing atomic stats and detailing element families dynamically.",
+    "category": "Internship Projects",
+    "difficulty": "Beginner",
+    "tech": ["React", "TailwindCSS", "JSON Data"]
+  },
+  {
+    "id": "p-91",
+    "title": "Pixel Art Drawing Grid",
+    "description": "An interactive digital canvas letting retro art fans color cells and download PNG sprites.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5 Canvas", "JavaScript", "CSS3 Variables"]
+  },
+  {
+    "id": "p-92",
+    "title": "Interactive Retro Pomodoro Timer",
+    "description": "A focus timer styled as a vintage CRT monitor with custom lo-fi study music playback.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "CSS3", "JavaScript", "Web Audio API"]
+  },
+  {
+    "id": "p-93",
+    "title": "Web-Based Markdown Notepad",
+    "description": "A sandbox markdown notepad auto-saving user input and highlighting code blocks dynamically.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "Marked.js", "Prism.js", "LocalStorage"]
+  },
+  {
+    "id": "p-94",
+    "title": "Regular Expression Tester UI",
+    "description": "A clean regex sandbox detailing string matches, capture groups, and replacement results.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    "id": "p-95",
+    "title": "Custom Password Generator Engine",
+    "description": "A high-security passphrase compiler featuring customization checkboxes for symbol inclusions.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "Web Crypto API", "Vanilla CSS"]
+  },
+  {
+    "id": "p-96",
+    "title": "Sudoku Matrix Solver",
+    "description": "An algorithmic sandbox displaying live visual backtracking runs on Sudoku boards.",
+    "category": "Mini Projects",
+    "difficulty": "Intermediate",
+    "tech": ["HTML5", "JavaScript", "CSS3 Grid"]
+  },
+  {
+    "id": "p-97",
+    "title": "Image Asset Color Palette Extractor",
+    "description": "Drag-and-drop tool parsing image files and copying hex-codes of dominant tones.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["Canvas API", "ColorThief", "JavaScript"]
+  },
+  {
+    "id": "p-98",
+    "title": "Typing Speed Tester",
+    "description": "A clean application counting accurate words-per-minute metrics and graphing progression rates.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "HTML5", "CSS3"]
+  },
+  {
+    "id": "p-99",
+    "title": "Dynamic Analog Retro Clock",
+    "description": "A canvas drawing of a vintage mechanical clock tracking actual server time zones.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["Canvas API", "JavaScript", "CSS3"]
+  },
+  {
+    "id": "p-100",
+    "title": "Scientific Equation Calculator",
+    "description": "A browser calculator utilizing parser scripts to evaluate structured algebraic steps.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["Math.js", "HTML5", "CSS3 Grid"]
+  },
+  {
+    "id": "p-101",
+    "title": "Local JSON Data Formatter",
+    "description": "A browser code utility that formats, tree-parses, and validates messy JSON payloads.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    "id": "p-102",
+    "title": "Canvas Drawing Paint Box",
+    "description": "A multi-brush canvas workspace letting artists adjust thicknesses and export sketches.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["Canvas API", "JavaScript", "CSS3"]
+  },
+  {
+    "id": "p-103",
+    "title": "Web Scraper Script Command App",
+    "description": "An interactive UI returning site title headers, image tags, and paragraph text from URLs.",
+    "category": "Mini Projects",
+    "difficulty": "Intermediate",
+    "tech": ["Node.js", "Cheerio", "Express.js"]
+  },
+  {
+    "id": "p-104",
+    "title": "Interactive Flash Card Study App",
+    "description": "A minimal tool letting students write study flash cards, flip cards, and review scores.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "CSS3 Transitions", "JavaScript", "LocalStorage"]
+  },
+  {
+    "id": "p-105",
+    "title": "BMI Health & Intake Indexer",
+    "description": "A calculation engine graphing weight ranges and suggesting fluid metrics.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "HTML5", "CSS3"]
+  },
+  {
+    "id": "p-106",
+    "title": "Dice Roll & Probability Matrix",
+    "description": "A creative statistics canvas rolling digital dice dynamically and calculating averages.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5 Canvas", "JavaScript"]
+  },
+  {
+    "id": "p-107",
+    "title": "Stopwatch with Split Laps",
+    "description": "High-accuracy mechanical browser timer tracking millisecond counts and archiving splits.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "CSS3", "LocalStorage"]
+  },
+  {
+    "id": "p-108",
+    "title": "Units Metric Converter App",
+    "description": "Utility framework translating temperature metrics, weights, and lengths instantly.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "JavaScript", "CSS3"]
+  },
+  {
+    "id": "p-109",
+    "title": "Random Word Generator & Dictionary",
+    "description": "Creative interface giving writers vocabulary prompts alongside semantic examples.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "Dictionary API", "Vanilla CSS"]
+  },
+  {
+    "id": "p-110",
+    "title": "Interactive Tic Tac Toe AI",
+    "description": "Classic browser board with a minimax algorithm bot that makes perfect tactical steps.",
+    "category": "Mini Projects",
+    "difficulty": "Intermediate",
+    "tech": ["JavaScript", "HTML5", "CSS3 Grid"]
+  },
+  {
+    "id": "p-111",
+    "title": "CSS Box Shadow Sandbox",
+    "description": "Visual sliders adjusting offsets, spreads, and colors to copy styling tags.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    "id": "p-112",
+    "title": "Dynamic Todo Checklist Tracker",
+    "description": "Clean list manager saving priorities, task tags, and checked values locally.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "CSS3", "LocalStorage"]
+  },
+  {
+    "id": "p-113",
+    "title": "Digital Tip Split Calculator",
+    "description": "Utility division tool calculating bill weights, tip ratios, and per-head balances.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "HTML5", "CSS3"]
+  },
+  {
+    "id": "p-114",
+    "title": "Real-Time Character Count App",
+    "description": "A text utility indexing key statistics like word sums, spacer counts, and speaking times.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "HTML5", "CSS3"]
+  },
+  {
+    "id": "p-115",
+    "title": "Dynamic Quiz Board",
+    "description": "A clean trivia interface grading multiple-choice responses and mapping score records.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["JavaScript", "HTML5", "CSS3"]
+  },
+  {
+    "id": "p-116",
+    "title": "Retro Soundboard Simulator",
+    "description": "Keyboard-triggered soundboard playing high-fidelity synthesizer pads and custom sound effects.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["Web Audio API", "JavaScript", "HTML5"]
+  },
+  {
+    "id": "p-117",
+    "title": "Pixel Sprite Editor",
+    "description": "A structural grid tool enabling artists to draw retro icons and download PNG sprites.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5 Canvas", "JavaScript", "CSS3"]
+  },
+  {
+    "id": "p-118",
+    "title": "Virtual Drum Kit",
+    "description": "Hit high-end virtual snare, cymbal, and tom pads using your keyboard or mouse clicks.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["Web Audio API", "JavaScript", "CSS3"]
+  },
+  {
+    "id": "p-119",
+    "title": "Color Contrast Validator for Accessibility",
+    "description": "An analyzer assessing foreground and background colors to evaluate contrast ratios based on Web WCAG criteria.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    "id": "p-120",
+    "title": "Cryptographic Hash Generator",
+    "description": "Secure dashboard generating cryptographic hashes (MD5, SHA-1, SHA-256) of input texts on the fly.",
+    "category": "Mini Projects",
+    "difficulty": "Beginner",
+    "tech": ["Web Crypto API", "JavaScript", "HTML5"]
+  }
+]
